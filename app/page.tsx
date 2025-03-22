@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer"
 import { Button } from "@/components/ui/button"
 import { BackgroundGradient } from "@/components/ui/aceternity/background-gradient"
 import { HoverEffect } from "@/components/ui/aceternity/card-hover-effect"
-import { Navbar } from "@/components/navbar"
+import Navbar from "@/components/navbar"
 import { Spotlight } from "@/components/ui/aceternity/spotlight"
 import { CardContainer, CardBody, CardItem } from "@/components/ui/aceternity/3d-card"
 
