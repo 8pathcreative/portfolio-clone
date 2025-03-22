@@ -15,8 +15,8 @@ const menuItems = [
   { title: "Contact", href: "/contact" },
 ]
 
-export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -29,9 +29,9 @@ export function Navbar() {
   }, [])
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
+    setIsMenuOpen(!isMenuOpen)
     // Prevent scrolling when menu is open
-    if (!isOpen) {
+    if (!isMenuOpen) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "auto"
@@ -57,10 +57,10 @@ export function Navbar() {
           <button
             onClick={toggleMenu}
             className="text-white p-2 focus:outline-none z-50 relative"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <AnimatePresence mode="wait">
-              {isOpen ? (
+              {isMenuOpen ? (
                 <motion.div
                   key="close"
                   initial={{ opacity: 0, rotate: -90 }}
@@ -88,7 +88,7 @@ export function Navbar() {
 
       {/* Full-screen menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

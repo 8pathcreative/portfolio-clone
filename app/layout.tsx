@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Footer } from "@/components/footer"
+import Navbar from "@/components/navbar"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,16 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${inter.variable} font-sans`}>
+      <body className={`min-h-screen flex flex-col ${inter.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          {children}
+          <Navbar />
+          <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'

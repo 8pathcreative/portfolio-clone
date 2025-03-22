@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add global CSS fixes here */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply antialiased text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-900;
+  overflow-x: hidden;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -100,5 +110,24 @@ body {
 
 .animate-border {
   animation: border-animation var(--duration, 2000ms) ease-in-out infinite;
+}
+
+/* Fix for content jumping when scrollbar appears */
+@layer utilities {
+  .scrollbar-compensate {
+    margin-right: calc(100vw - 100%);
+  }
+}
+
+/* Improved focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-blue-500 outline-offset-2;
+}
+
+/* Custom responsive spacing helpers */
+@layer utilities {
+  .responsive-container {
+    @apply px-4 sm:px-6 lg:px-8 w-full mx-auto max-w-7xl;
+  }
 }
 
