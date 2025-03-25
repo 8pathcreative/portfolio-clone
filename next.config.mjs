@@ -14,7 +14,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'aceternity.com',
+        pathname: '/images/**',
+      },
+    ],
   },
   experimental: {
     webpackBuildWorker: true,
