@@ -1,10 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, BarChart2, Users, BellRing, Award } from "lucide-react";
 
 export default function Page() {
+  // Use state to handle client-side rendering
+  const [isClient, setIsClient] = useState(false);
+
+  // This ensures the component renders on the client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Return a simplified version for the server
+  if (!isClient) {
+    return <div className="min-h-screen bg-white"></div>;
+  }
+
+  // Full client-side rendering
   return (
     <div className="bg-white text-gray-900 w-full overflow-x-hidden">
       {/* Navigation */}
